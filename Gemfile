@@ -47,3 +47,5 @@ end
 
 gem 'factory_girl_rails'
 gem 'faker'
+gem 'pickle'
+gem 'devise'
