@@ -1,0 +1,12 @@
+body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family: Arial, "MS Trebuchet", sans-serif; }
+#header_container { margin:0px; padding:20px; text-align: right; }
+#main_container { padding:20px; background-color: #fff; color:#000; } 
+#sub_container { padding:20px; }
+
+.post { margin-bottom: 20px; }
+.post_body { border-top: 1px solid #999; border-bottom: 1px solid #999; padding:10px 0px 10px 0px; }
+
+#search_set { font-size: 1.2em; background-color: #0B0B61; padding:10px; color:#fff;  }
+#main_search { font-size: 1.0em; margin-left:10px; width:400px; }
+
+#found_posts { padding:10px; background-color: #E0ECF8; }

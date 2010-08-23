@@ -1,0 +1,3 @@
+[ <% @posts.each_with_index do |post, index|  %>
+   { "title" : "<%= post.title %>", "body" : "<%= post.body %>", "reply_count" : "<%= post.replies.count %>" } <%= ", " if index != (@posts.length - 1) %>
+<% end %> ]

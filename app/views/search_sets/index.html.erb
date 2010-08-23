@@ -1,0 +1,59 @@
+<% content_for :head do %>
+    <script type="text/javascript" charset="utf-8">
+        
+        function render_inline_post(data)
+        {
+            $('#found_posts').append('<div class="inline_post">' + data.title + " Replies: "  + data.reply_count + "</div>");
+        }
+        
+        function search_key_changed()
+        {
+            if($('#main_search').val().length > 3)
+            {
+                $.getJSON("/posts.json?search=" + $('#main_search').val(), function(data){
+                    $('#found_posts').html("");
+                    for(var i = 0; i < data.length; i++)
+                        render_inline_post(data[i]);
+                });
+            }
+        }
+        
+        $(document).ready(function(){
+            $('#main_search').keyup(function(){
+                search_key_changed();
+            });
+        });
+        
+    </script>
+<% end %>
+
+
+<div id="search_set" >
+    <label for="main_search">Search</label><input type="text" name="search" value="" id="main_search">    
+</div>
+
+<div id="found_posts">
+    
+</div>
+
+<% @search_sets.each do |search_set| %>
+    <h3><%= search_set.search_query_string %></h3>
+    <div id="post_container">
+        <% if search_set.posts.count > 0 %>
+            <% search_set.posts.each do |post| %>
+                <div class="post">
+                    <div class="post_title"><%= link_to post.title, post %></div>
+                    <div class="post_body"><%= post.body %></div>
+                    <div class="post_meta">Replies: <%= post.replies.count %> Posted <%= time_ago_in_words(post.created_at) %> ago</div>
+                </div>
+            <% end %>
+        <% else %>
+            There are no posts in this set.
+        <% end %>
+    </div>
+<% end %>
+
+<% content_for :sub_container do %>
+    <h3>Create Post</h3>
+    <%= render :template => "posts/_form", :locals => { :@post => Post.new } %>
+<% end %>

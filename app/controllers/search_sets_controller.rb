@@ -1,0 +1,83 @@
+class SearchSetsController < ApplicationController
+  # GET /search_sets
+  # GET /search_sets.xml
+  def index
+    @search_sets = SearchSet.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @search_sets }
+    end
+  end
+
+  # GET /search_sets/1
+  # GET /search_sets/1.xml
+  def show
+    @search_set = SearchSet.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @search_set }
+    end
+  end
+
+  # GET /search_sets/new
+  # GET /search_sets/new.xml
+  def new
+    @search_set = SearchSet.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @search_set }
+    end
+  end
+
+  # GET /search_sets/1/edit
+  def edit
+    @search_set = SearchSet.find(params[:id])
+  end
+
+  # POST /search_sets
+  # POST /search_sets.xml
+  def create
+    @search_set = SearchSet.new(params[:search_set])
+
+    respond_to do |format|
+      if @search_set.save
+        format.html { redirect_to(@search_set, :notice => 'Search set was successfully created.') }
+        format.xml  { render :xml => @search_set, :status => :created, :location => @search_set }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @search_set.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /search_sets/1
+  # PUT /search_sets/1.xml
+  def update
+    @search_set = SearchSet.find(params[:id])
+
+    respond_to do |format|
+      if @search_set.update_attributes(params[:search_set])
+        format.html { redirect_to(@search_set, :notice => 'Search set was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @search_set.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /search_sets/1
+  # DELETE /search_sets/1.xml
+  def destroy
+    @search_set = SearchSet.find(params[:id])
+    @search_set.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(search_sets_url) }
+      format.xml  { head :ok }
+    end
+  end
+end
