@@ -49,3 +49,5 @@ gem 'factory_girl_rails'
 gem 'faker'
 gem 'pickle'
 gem 'devise'
+
+gem 'thinking-sphinx', '2.0.0.rc1', :require => 'thinking_sphinx'

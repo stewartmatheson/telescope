@@ -1,4 +1,6 @@
 Telescope::Application.routes.draw do
+  resources :search_sets
+
   devise_for :users
 
   resources :posts
@@ -52,7 +54,7 @@ Telescope::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "posts#index"
+  root :to => "search_sets#index"
 
   # See how all your routes lay out with "rake routes"
 

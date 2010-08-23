@@ -1,4 +1,4 @@
 Factory.define :post do |p|
-  p.title { Faker::sentance }
-  p.body  { Faker::Lorem.paragraphs 5 }
+  p.title { Faker::Lorem.sentence }
+  p.body  { Faker::Lorem.paragraphs 10 }
 end

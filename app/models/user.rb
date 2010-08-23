@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :search_sets, :class_name => "SearchSet", :foreign_key => "user_id"
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,

@@ -2,11 +2,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
-
+    if params[:search]
+      @posts = Post.search params[:search]
+    else
+      @posts = Post.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+      format.json { render :action => "index" }
     end
   end
 
