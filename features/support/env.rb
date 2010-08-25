@@ -7,10 +7,6 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 
-require 'cucumber/thinking_sphinx/external_world'
-Cucumber::ThinkingSphinx::ExternalWorld.new
-Cucumber::Rails::World.use_transactional_fixtures = false
-
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
 require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'

@@ -4,8 +4,7 @@ Feature: Manage Searches
    
    Scenario: Making sure that a post shows in a search set when it should
       Given a post exists with title: "Hello", body: "What about you"
-   	And a search_set exists with search_query_string: "Hello"
-   	When The search index is rebuilt
    	And I go to the home page
+   	And fill in "main_search" with "Hello"
    	Then I should see "Hello"
-   	And I should see "1 topic"
+   	And I should see "1 topics found"
