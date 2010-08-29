@@ -7,6 +7,8 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 .post_body { border-top: 1px solid #999; border-bottom: 1px solid #999; padding:10px 0px 10px 0px; }
 
 #search_set { font-size: 1.2em; background-color: #0B0B61; padding:10px; color:#fff;  }
-#main_search { font-size: 1.0em; margin-left:10px; width:400px; }
-
+#search_set_search_query_string { font-size: 1.0em; margin-left:10px; width:400px; }
 #found_posts { padding:10px; background-color: #E0ECF8; }
+
+.saved_search_title { font-size: 1.2em; }
+.saved_search_set 	{ padding:10px; background-color: #DDD; margin: 10px 0px 10px 0px; }

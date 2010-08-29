@@ -1,0 +1,7 @@
+var outter_div = document.createElement('div');
+$(outter_div).hide();
+$(outter_div).addClass("saved_search_set");
+$(outter_div).html("<%= @search_set.search_query_string %>");
+$("#saved_search_set_containers").append(outter_div);
+$(outter_div).slideDown();
+reset_search();

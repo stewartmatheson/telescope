@@ -1,6 +1,12 @@
 <% content_for :head do %>
     <script type="text/javascript" charset="utf-8">
         
+        function reset_search()
+        {
+            $('#search_set_search_query_string').val("");
+            $('#found_posts').html("");
+        }
+        
         function render_inline_post(data)
         {
             $('#found_posts').append('<div class="inline_post">' + data.title + " Replies: "  + data.reply_count + "</div>");
@@ -8,9 +14,9 @@
         
         function search_key_changed()
         {
-            if($('#main_search').val().length > 3)
+            if($('#search_set_search_query_string').val().length > 3)
             {
-                $.getJSON("/posts.json?search=" + $('#main_search').val(), function(data){
+                $.getJSON("/posts.json?search=" + $('#search_set_search_query_string').val(), function(data){
                     $('#found_posts').html("");
                     for(var i = 0; i < data.length; i++)
                         render_inline_post(data[i]);
@@ -19,9 +25,12 @@
         }
         
         $(document).ready(function(){
-            $('#main_search').keyup(function(){
+            $('#search_set_search_query_string').keyup(function(){
                 search_key_changed();
             });
+            
+            $('#new_search_set').submitWithAjax();
+            $('.delete_set').submitWithAjax();
         });
         
     </script>
@@ -29,29 +38,33 @@
 
 
 <div id="search_set" >
-    <label for="main_search">Search</label><input type="text" name="search" value="" id="main_search">    
+    <%= render :template => "search_sets/_form", :locals => { :@search_set => SearchSet.new } %>    
 </div>
 
 <div id="found_posts">
     
 </div>
 
-<% @search_sets.each do |search_set| %>
-    <h3><%= search_set.search_query_string %></h3>
-    <div id="post_container">
-        <% if search_set.posts.count > 0 %>
-            <% search_set.posts.each do |post| %>
-                <div class="post">
-                    <div class="post_title"><%= link_to post.title, post %></div>
-                    <div class="post_body"><%= post.body %></div>
-                    <div class="post_meta">Replies: <%= post.replies.count %> Posted <%= time_ago_in_words(post.created_at) %> ago</div>
-                </div>
-            <% end %>
-        <% else %>
-            There are no posts in this set.
-        <% end %>
-    </div>
-<% end %>
+<div id="saved_search_set_containers">
+    <% @search_sets.each do |search_set| %>
+        <div class="saved_search_set">
+            
+            <div class="saved_search_title">
+                <%= search_set.search_query_string %>
+                <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
+                    <%= submit_tag "Delete" %>
+                </form>
+            </div>
+            
+            <div class="seved_search_posts">
+                <% search_set.posts.each do |post| %>
+                    <div class="search_post"><%= post.title %></div>
+                <% end %>
+            </div>
+            
+        </div>
+    <% end %>
+</div>
 
 <% content_for :sub_container do %>
     <h3>Create Post</h3>

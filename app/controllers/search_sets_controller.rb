@@ -32,10 +32,6 @@ class SearchSetsController < ApplicationController
     end
   end
 
-  # GET /search_sets/1/edit
-  def edit
-    @search_set = SearchSet.find(params[:id])
-  end
 
   # POST /search_sets
   # POST /search_sets.xml
@@ -46,28 +42,15 @@ class SearchSetsController < ApplicationController
       if @search_set.save
         format.html { redirect_to(@search_set, :notice => 'Search set was successfully created.') }
         format.xml  { render :xml => @search_set, :status => :created, :location => @search_set }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @search_set.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
   end
 
-  # PUT /search_sets/1
-  # PUT /search_sets/1.xml
-  def update
-    @search_set = SearchSet.find(params[:id])
-
-    respond_to do |format|
-      if @search_set.update_attributes(params[:search_set])
-        format.html { redirect_to(@search_set, :notice => 'Search set was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @search_set.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /search_sets/1
   # DELETE /search_sets/1.xml
@@ -78,6 +61,7 @@ class SearchSetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(search_sets_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end
