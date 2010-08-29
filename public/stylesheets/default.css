@@ -4,11 +4,19 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 #sub_container { padding:20px; }
 
 .post { margin-bottom: 20px; }
-.post_body { border-top: 1px solid #999; border-bottom: 1px solid #999; padding:10px 0px 10px 0px; }
+.post_body {  }
+#post_body, #post_title { width:98%; padding:5px; }
 
 #search_set { font-size: 1.2em; background-color: #0B0B61; padding:10px; color:#fff;  }
 #search_set_search_query_string { font-size: 1.0em; margin-left:10px; width:400px; }
 #found_posts { padding:10px; background-color: #E0ECF8; }
 
-.saved_search_title { font-size: 1.2em; }
-.saved_search_set 	{ padding:10px; background-color: #DDD; margin: 10px 0px 10px 0px; }
+.saved_search_title { font-size: 1.0em; background-color: #333; padding:10px; color:#fff; }
+.saved_search_set 	{  background-color: #DDD; margin: 10px 0px 10px 0px; }
+.search_set_title { font-size: 1.2em; }
+.search_topic_table { margin:10px; }
+.search_topic_table th { text-align: left; font-size:.6em; padding-bottom:10px;  }
+.search_set_summary { font-size: .7em; color:#333; padding:5px 0px 5px 0px; }
+.search_topic_table th td { margin:0px; }
+.topic_cell { width:100%; }
+.delete_button { float:right; }

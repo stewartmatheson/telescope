@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :topic_id, :null => true
+      t.integer :user_id, :null => true
       t.boolean :delta, :default => true, :null => false
       t.timestamps
     end

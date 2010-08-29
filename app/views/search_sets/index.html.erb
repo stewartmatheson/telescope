@@ -48,19 +48,32 @@
 <div id="saved_search_set_containers">
     <% @search_sets.each do |search_set| %>
         <div class="saved_search_set">
-            
             <div class="saved_search_title">
-                <%= search_set.search_query_string %>
-                <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
-                    <%= submit_tag "Delete" %>
-                </form>
+                <span class="search_set_title"><%= search_set.search_query_string %></span>
+                <div class="delete_button">
+                    <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
+                        <%= submit_tag "Remove" %>
+                    </form>                    
+                </div>
             </div>
-            
-            <div class="seved_search_posts">
+
+            <table class="search_topic_table">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Replies</th>
+                        <th>Author</th>
+                    </tr>
                 <% search_set.posts.each do |post| %>
-                    <div class="search_post"><%= post.title %></div>
+                    <tr>
+                        <td class="topic_cell"><%= link_to post.title, post %></td>
+                        <td><%= post.replies.count %></td>
+                        <td class="author_cell"><%= post.author_name %></td>
+                    </tr>
                 <% end %>
-            </div>
+                    <tr>
+                        <td class="search_set_summary">This telescope has <% search_set.posts.count %> <%= pluralize(search_set.posts.count, 'post') %>.</td>
+                    </tr>
+            </table>
             
         </div>
     <% end %>

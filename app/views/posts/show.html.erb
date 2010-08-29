@@ -1,15 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= render :template => 'posts/_post', :locals => { :@post => @post } %>
+<% content_for :sub_container do %>
+    <% @post.replies.each do |reply| %>
+        <%= render :template => 'posts/_post', :locals => { :@post => reply } %>
+    <% end %>
+    <h3>Reply to this post </h3>
+    <%= render :template => "posts/_form", :locals => { :@post => Post.new(:topic_id => @post.id ) } %>
+<% end %>

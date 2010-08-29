@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <%= f.hidden_field :topic_id %>
+
+  <div class="post_field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="post_field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
