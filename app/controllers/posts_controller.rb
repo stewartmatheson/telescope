@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :action => "index", :layout => false }
       format.xml  { render :xml => @posts }
       format.json { render :action => "index" }
     end

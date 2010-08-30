@@ -1,27 +1,22 @@
 <% content_for :head do %>
     <script type="text/javascript" charset="utf-8">
         
-        function reset_search()
+        function clear_search()
         {
+            $('#search_set_posts').html("");
             $('#search_set_search_query_string').val("");
-            $('#found_posts').html("");
         }
-        
-        function render_inline_post(data)
-        {
-            $('#found_posts').append('<div class="inline_post">' + data.title + " Replies: "  + data.reply_count + "</div>");
-        }
-        
+                
         function search_key_changed()
         {
             if($('#search_set_search_query_string').val().length > 3)
             {
-                $.getJSON("/posts.json?search=" + $('#search_set_search_query_string').val(), function(data){
-                    $('#found_posts').html("");
-                    for(var i = 0; i < data.length; i++)
-                        render_inline_post(data[i]);
+                $.get("/posts?search=" + $('#search_set_search_query_string').val(), function(data){
+                    $('#search_set_posts').html(data);
                 });
             }
+            else
+                $('#search_set_posts').html("");
         }
         
         $(document).ready(function(){
@@ -36,52 +31,17 @@
     </script>
 <% end %>
 
-
-<div id="search_set" >
+<div id="search_set">
     <%= render :template => "search_sets/_form", :locals => { :@search_set => SearchSet.new } %>    
 </div>
 
-<div id="found_posts">
+<div id="search_set_posts">
     
 </div>
 
-<div id="saved_search_set_containers">
-    <% @search_sets.each do |search_set| %>
-        <div class="saved_search_set">
-            <div class="saved_search_title">
-                <span class="search_set_title"><%= search_set.search_query_string %></span>
-                <div class="delete_button">
-                    <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
-                        <%= submit_tag "Remove" %>
-                    </form>                    
-                </div>
-            </div>
-
-            <table class="search_topic_table">
-                    <tr>
-                        <th>Topic</th>
-                        <th>Replies</th>
-                        <th>Author</th>
-                    </tr>
-                <% search_set.topics.each do |post| %>
-                    <tr>
-                        <td class="topic_cell"><%= link_to post.title, post %></td>
-                        <td><%= post.replies.count %></td>
-                        <td class="author_cell"><%= post.author_name %></td>
-                    </tr>
-                <% end %>
-                    <tr>
-                        <td class="search_set_summary">
-                            This telescope has 
-                            <%= pluralize(search_set.posts.count, 'post') %> across 
-                            <%= pluralize(search_set.topics.count, 'topic') %>.
-                        </td>
-                    </tr>
-            </table>
-            
-        </div>
-    <% end %>
-</div>
+<% @search_sets.each do |search_set| %>
+    <%= render :template => "search_sets/_index_set", :locals => { :search_set => search_set} %>
+<% end %>
 
 <% content_for :sub_container do %>
     <h3>Create Post</h3>

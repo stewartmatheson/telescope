@@ -15,15 +15,13 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 .post_title { margin-bottom:15px; font-size:1.0em; font-weight: bold; }
 .post_body { font-size: .8em;}
 
-#search_set { font-size: 1.2em; background-color: #0B0B61; padding:10px; color:#fff;  }
-#search_set_search_query_string { font-size: 1.0em; margin-left:10px; width:400px; }
-#found_posts { padding:10px; background-color: #E0ECF8; }
+#search_set { font-size: 1.0em; background-color: #CCCCFF; padding:10px; color:#000;  }
+#search_set_search_query_string { font-size: 0.9em; margin-left:5px; width:400px; }
 
-.saved_search_title { font-size: 1.0em; background-color: #333; padding:10px; color:#fff; }
+.saved_search_title { font-size: 1.0em; background-color: #CCC; padding:10px; color:#000; }
 .saved_search_set 	{  background-color: #DDD; margin: 10px 0px 10px 0px; }
-.search_set_title { font-size: 1.2em; }
-.search_topic_table { margin:10px; }
-.search_topic_table th { text-align: left; font-size:.6em; padding-bottom:10px;  }
+.search_topic_table { margin:0px; font-size: 0.8em; }
+.search_topic_table th { text-align: left; font-size:.6em; padding:5px 0px 5px 0px; ;  }
 .search_set_summary { font-size: .7em; color:#333; padding:5px 0px 5px 0px; }
 .search_topic_table th td { margin:0px; }
 .topic_cell { width:100%; }

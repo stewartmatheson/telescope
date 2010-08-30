@@ -1,1 +1,6 @@
-alert($(this));
+$('#search_set_title_' + <%= @search_set.id %>).slideUp("fast", function(){
+	$(this).remove();
+});
+$('#search_set_body_' + <%= @search_set.id %>).slideUp("fast", function(){
+	$(this).remove();
+});
