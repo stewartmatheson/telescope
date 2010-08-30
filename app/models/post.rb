@@ -19,4 +19,12 @@ class Post < ActiveRecord::Base
     "Anonymous"
   end
   
+  def has_permissions?
+    false
+  end
+  
+  def is_topic?
+    !topic
+  end
+  
 end

@@ -15,3 +15,7 @@ Then /^the post with id = (\d+) should have a topic with id = (\d+)$/ do |post_i
   p = Post.find(post_id)
   p.topic.id.should == topic_id.to_i
 end
+
+When /^I click button "([^"]*)"$/ do |button_name|
+  click_button button_name
+end

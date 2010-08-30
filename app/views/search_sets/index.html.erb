@@ -63,7 +63,7 @@
                         <th>Replies</th>
                         <th>Author</th>
                     </tr>
-                <% search_set.posts.each do |post| %>
+                <% search_set.topics.each do |post| %>
                     <tr>
                         <td class="topic_cell"><%= link_to post.title, post %></td>
                         <td><%= post.replies.count %></td>
@@ -71,7 +71,11 @@
                     </tr>
                 <% end %>
                     <tr>
-                        <td class="search_set_summary">This telescope has <% search_set.posts.count %> <%= pluralize(search_set.posts.count, 'post') %>.</td>
+                        <td class="search_set_summary">
+                            This telescope has 
+                            <%= pluralize(search_set.posts.count, 'post') %> across 
+                            <%= pluralize(search_set.topics.count, 'topic') %>.
+                        </td>
                     </tr>
             </table>
             
