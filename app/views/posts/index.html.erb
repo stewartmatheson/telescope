@@ -1,8 +1,14 @@
-<div id="post_container">
+<table class="search_topic_table">
+    <tr>
+        <th>Topic</th>
+        <th>Replies</th>
+        <th>Author</th>
+    </tr>
     <% @posts.each do |post| %>
-        <div class="post">
-            <div class="post_title"><%= link_to post.title, post %></div>
-            <div class="post_meta">Replies: <%= post.replies.count %> Posted <%= time_ago_in_words(post.created_at) %> ago</div>
-        </div>
+        <tr>
+            <td class="topic_cell"><%= link_to post.title, post %></td>
+            <td><%= post.replies.count %></td>
+            <td class="author_cell"><%= post.author_name %></td>
+        </tr>
     <% end %>
-</div>
+</table>
