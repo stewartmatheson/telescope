@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     if params[:search]
-      @posts = Post.search params[:search]
+      search_set = SearchSet.new(:search_query_string => params[:search])
+      @posts = search_set.topics
     else
       @posts = Post.all
     end

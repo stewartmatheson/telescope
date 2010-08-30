@@ -20,7 +20,7 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 
 .saved_search_title { font-size: 1.0em; background-color: #CCC; padding:10px; color:#000; }
 .saved_search_set 	{  background-color: #DDD; margin: 10px 0px 10px 0px; }
-.search_topic_table { margin:0px; font-size: 0.8em; }
+.search_topic_table { margin:5px; font-size: 0.8em; }
 .search_topic_table th { text-align: left; font-size:.6em; padding:5px 0px 5px 0px; ;  }
 .search_set_summary { font-size: .7em; color:#333; padding:5px 0px 5px 0px; }
 .search_topic_table th td { margin:0px; }
