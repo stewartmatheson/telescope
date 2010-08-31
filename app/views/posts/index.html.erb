@@ -1,14 +1,21 @@
-<table class="search_topic_table" id="topic_index">
-    <tr>
-        <th>Topic</th>
-        <th>Replies</th>
-        <th>Author</th>
-    </tr>
-    <% @posts.each do |post| %>
+<% if !@posts.empty? %>
+    <table class="search_topic_table" id="topic_index" cellspacing="10">
         <tr>
-            <td class="topic_cell"><%= link_to post.title, post %></td>
-            <td><%= post.replies.count %></td>
-            <td class="author_cell"><%= post.author_name %></td>
+            <th>Topic</th>
+            <th>Replies</th>
+            <th>Author</th>
+            <th>Created</th>
         </tr>
-    <% end %>
-</table>
+        <% @posts.each do |post| %>
+            <tr>
+                <td class="topic_cell"><%= link_to post.title, post %></td>
+                <td class="reply_cell"><%= post.replies.count %></td>
+                <td class="author_cell"><%= post.author_name %></td>
+                <td class="started_time_cell"><%= time_ago_in_words(post.created_at).capitalize %> ago</td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <div class="no_posts">No posts found.</div>
+<% end %>
+

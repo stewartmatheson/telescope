@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20100821164835) do
     t.string   "title"
     t.text     "body"
     t.integer  "topic_id"
+    t.integer  "user_id"
     t.boolean  "delta",      :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20100821164835) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

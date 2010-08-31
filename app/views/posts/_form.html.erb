@@ -11,7 +11,12 @@
     </div>
   <% end %>
 
+
   <%= f.hidden_field :topic_id %>
+
+  <% if user_signed_in? %>  
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
 
   <div class="post_field">
     <%= f.label :title %><br />

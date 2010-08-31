@@ -1,5 +1,5 @@
 <div class="saved_search_title" id="search_set_title_<%= search_set.id %>">
-    <span class="search_set_title"><%= search_set.search_query_string.capitalize %></span>
+    <span class="search_set_title"><strong>Telescope</strong> "<%= search_set.search_query_string.capitalize %>"</span>
     <div class="delete_button">
         <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
             <%= submit_tag "Remove" %>
@@ -8,25 +8,6 @@
 </div>
 
 <div class="saved_search_set_posts" id="search_set_body_<%= search_set.id %>">
-    <table class="search_topic_table">
-            <tr>
-                <th>Topic</th>
-                <th>Replies</th>
-                <th>Author</th>
-            </tr>
-        <% search_set.topics.each do |post| %>
-            <tr>
-                <td class="topic_cell"><%= link_to post.title, post %></td>
-                <td><%= post.replies.count %></td>
-                <td class="author_cell"><%= post.author_name %></td>
-            </tr>
-        <% end %>
-            <tr>
-                <td class="search_set_summary">
-                    This telescope has 
-                    <%= pluralize(search_set.posts.count, 'post') %> across 
-                    <%= pluralize(search_set.topics.count, 'topic') %>.
-                </td>
-            </tr>
-    </table>
+    <%= render :template => 'posts/index', :locals => { :@posts => search_set.topics } %>
+    <div class="search_set_summary">This telescope has <%= pluralize(search_set.posts.count, "Post") %> over <%= pluralize(search_set.topics.count, "Topic") %>.</div>
 </div>

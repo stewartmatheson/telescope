@@ -11,7 +11,9 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :user_id, :value => current_user %>
+  <% if user_signed_in? %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
   <%= f.label :search_query_string, :Search %>
   <%= f.text_field :search_query_string %>
   <%= f.submit :value => "Save" %>

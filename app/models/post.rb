@@ -7,14 +7,15 @@ class Post < ActiveRecord::Base
 
   
   define_index do
-    indexes body
     indexes title
+    indexes body
+    indexes created_at, :sortable => true
     set_property :delta => true
   end
   
   def author_name
     if user
-      return user.email
+      return user.name
     end
     "Anonymous"
   end

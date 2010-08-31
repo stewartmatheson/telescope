@@ -2,7 +2,11 @@ class SearchSetsController < ApplicationController
   # GET /search_sets
   # GET /search_sets.xml
   def index
-    @search_sets = SearchSet.all
+    if user_signed_in?
+      @search_sets = SearchSet.where("user_id = ?", current_user.id)
+    else
+      @search_sets = SearchSet.where("user_id = NULL")
+    end
 
     respond_to do |format|
       format.html # index.html.erb
