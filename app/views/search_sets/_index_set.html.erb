@@ -9,5 +9,5 @@
 
 <div class="saved_search_set_posts" id="search_set_body_<%= search_set.id %>">
     <%= render :template => 'posts/index', :locals => { :@posts => search_set.topics } %>
-    <div class="search_set_summary">This telescope has <%= pluralize(search_set.posts.count, "Post") %> over <%= pluralize(search_set.topics.count, "Topic") %>.</div>
+    <div class="search_set_summary">This telescope consists of <%= pluralize(search_set.posts.total_entries, "Post") %>. <%= link_to 'Older Posts', search_set %></div>
 </div>

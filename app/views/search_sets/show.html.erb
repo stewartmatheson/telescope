@@ -1,15 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @search_set.user_id %>
-</p>
-
-<p>
-  <b>Search query string:</b>
-  <%= @search_set.search_query_string %>
-</p>
-
-
-<%= link_to 'Edit', edit_search_set_path(@search_set) %> |
-<%= link_to 'Back', search_sets_path %>
+<h3><%= @search_set.search_query_string %></h3>
+<%= render :template => 'posts/index', :locals => { :@posts => @search_set.topics } %>

@@ -1,6 +1,6 @@
 body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family: Arial, "MS Trebuchet", sans-serif; }
 #header_container { margin:0px; padding:20px; margin-bottom:20px; }
-#notice { text-align: center; margin:0px auto; padding:5px; background-color:#F7F8E0; border: 1px solid #B45F04; border-top:none; color:#000; width:80%; font-size: 0.8em; }
+#notice { text-align: center; margin:0px auto; padding:10px 0px 10px 0px; display: block; background-color:#F7F8E0; border-bottom: 1px solid #B45F04; color:#000; width:100%; font-size: 0.8em; }
 #title a { color:#fff; text-decoration: none; float:left; font-size: 1.2em; font}
 #title_right { float:right; font-size: .7em; }
 #title_right a { color:#fff;}
