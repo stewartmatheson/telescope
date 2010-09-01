@@ -8,10 +8,14 @@
   <%= yield :head %>
 </head>
 <body>
+
 <% if notice %>
 	<div id="notice"><%= notice %></div>
 <% end %>
-<p id="alert"><%= alert %></p>
+
+<% if alert %>
+	<div id="alert"><%= alert %></div>
+<% end  %>
 
 <div id="header_container">      
 	<div id="title">

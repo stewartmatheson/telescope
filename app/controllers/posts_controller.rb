@@ -52,6 +52,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+    @post.request = request
 
     respond_to do |format|
       if @post.save

@@ -3,7 +3,7 @@
     <div class="post_container">
         <div class="post_title"><%= @post.title %></div>
         <div class="post_body"><%= @post.body %></div>
-        <% if @post.has_permissions? %>
+        <% if @post.has_permissions?(current_user) %>
             <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %>
         <% end  %>
     </div>

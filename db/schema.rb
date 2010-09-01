@@ -17,7 +17,11 @@ ActiveRecord::Schema.define(:version => 20100821164835) do
     t.text     "body"
     t.integer  "topic_id"
     t.integer  "user_id"
-    t.boolean  "delta",      :default => true, :null => false
+    t.boolean  "delta",         :default => true,  :null => false
+    t.string   "user_ip",       :default => "",    :null => false
+    t.string   "user_agent",    :default => "",    :null => false
+    t.string   "user_referrer", :default => "",    :null => false
+    t.boolean  "approved",      :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

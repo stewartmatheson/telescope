@@ -18,6 +18,7 @@ class SearchSetsController < ApplicationController
   # GET /search_sets/1.xml
   def show
     @search_set = SearchSet.find(params[:id])
+    @topics = @search_set.topics(:page => params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

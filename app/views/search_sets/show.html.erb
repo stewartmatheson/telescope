@@ -1,2 +1,6 @@
 <h3><%= @search_set.search_query_string %></h3>
-<%= render :template => 'posts/index', :locals => { :@posts => @search_set.topics } %>
+<%= render :template => 'posts/index', :locals => { :@posts => @topics } %>
+
+<div id="page_links">
+    <%= page_links @search_set, params[:page] %>    
+</div>

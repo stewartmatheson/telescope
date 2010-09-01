@@ -3,11 +3,11 @@
     <div class="delete_button">
         <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
             <%= submit_tag "Remove" %>
-        </form>                    
+        </form>
     </div>
 </div>
 
 <div class="saved_search_set_posts" id="search_set_body_<%= search_set.id %>">
     <%= render :template => 'posts/index', :locals => { :@posts => search_set.topics } %>
-    <div class="search_set_summary">This telescope consists of <%= pluralize(search_set.posts.total_entries, "Post") %>. <%= link_to 'Older Posts', search_set %></div>
+    <div class="search_set_summary">This telescope consists of <%= pluralize(search_set.topics.total_entries, "Post") %>. <%= link_to 'Older Posts', search_set %></div>
 </div>
