@@ -5,10 +5,10 @@ Feature: Manage Posts
       
    Scenario: I have a post with 2 replies
       Given the following posts exist
-			| title | body                         | id     | topic_id  | 
-			| Hello | How are you today?           | 1      | null      |
-			| Good  | Good thanks what about you?  | 2      | 1         |  
-			| Great | I am great today             | 3      | 1         |
+			| title | body                         | id     | topic_id  | user_agent | 
+			| Hello | How are you today?           | 1      | null      | cucumber   | 
+			| Good  | Good thanks what about you?  | 2      | 1         | cucumber   |  
+			| Great | I am great today             | 3      | 1         | cucumber   |
 		Then the post with id = 1 should have 2 replies
 		And the post with id = 2 should have a topic with id = 1
 		
@@ -18,10 +18,11 @@ Feature: Manage Posts
 	   
 	Scenario: The reply is created with the correct post
 	   Given the following posts exist
-			| title | body                         | id     | topic_id  | 
-			| Hello | How are you today?           | 1      | null      |
-			| Good  | Good thanks what about you?  | 2      | 1         |  
-			| Great | I am great today             | 3      | 1         |
+			| title | body                         | id     | topic_id  | user_agent | 
+			| Hello | How are you today?           | 1      | null      | cucumber   |
+			| Good  | Good thanks what about you?  | 2      | 1         | cucumber   |  
+			| Great | I am great today             | 3      | 1         | cucumber   |
+	   And I am using FireFox
 	   When I go to path "/posts/1"
 	   And I fill in "post[title]" with "Test post"
 	   And I fill in "post[body]" with "This is the body"
@@ -31,10 +32,11 @@ Feature: Manage Posts
 	   
 	Scenario: Posts supports many replies
 	   Given the following posts exist
-			| title | body                         | id     | topic_id  | 
-			| Hello | How are you today?           | 1      | null      |
-			| Good  | Good thanks what about you?  | 2      | 1         |  
-			| Great | I am great today             | 3      | 1         |
+			| title | body                         | id     | topic_id  | user_agent | 
+			| Hello | How are you today?           | 1      | null      | cucumber   |
+			| Good  | Good thanks what about you?  | 2      | 1         | cucumber   |  
+			| Great | I am great today             | 3      | 1         | cucumber   |
+	   And I am using FireFox
 	   When I go to path "/posts/1"
 	   And I fill in "post[title]" with "Test post"
 	   And I fill in "post[body]" with "This is the body"

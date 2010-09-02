@@ -9,13 +9,21 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 #sub_container { padding:20px; }
 
 .post { margin-bottom: 20px; }
-#post_body, #post_title { width:98%; padding:5px; }
-.author_container { float:left; width:100px; }
-.post_container { margin-left:100px; }
+.no_posts { text-align: center; font-size: .8em; margin:20px; color:#333; }
+#post_body, #post_title { width:500px; padding:5px; }
+.author_container { float:left; width:150px; background-image: url('/images/left_arrow.png'); background-repeat: no-repeat; background-position: top right; font-size: .9em; margin-top:10px;  }
+.post_container { margin-left:150px; padding:20px; }
 .single_post_container { margin-bottom:50px; }
-.author_container { font-size: 0.8em; }
+.post_edit_links { font-size: .7em; }
+.post_edit_links a { color:#aaa; }
+.highlight { background-color: #FFFF00; }
+
 .post_title { margin-bottom:15px; font-size:1.0em; font-weight: bold; }
-.post_body { font-size: .8em;}
+.post_body { font-size: .8em; }
+.post_data { margin-top:20px; font-size: 0.8em; }
+.post_user_info { font-size: .8em;}
+
+.dark .post_container { -moz-border-radius:5px; background-color: #fff; color:#000; } 
 
 #search_set { font-size: 1.0em; background-color: #CCCCFF; padding:10px; color:#000;  }
 #search_set_search_query_string { font-size: 0.9em; margin-left:5px; width:400px; }
@@ -26,6 +34,8 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 .search_topic_table th { text-align: left; font-size:.6em; font-weight: bold;  }
 .search_set_summary { font-size: .7em; color:#333; padding:5px 0px 5px 0px; margin-left:10px; margin-bottom:35px; }
 .topic_cell { width:70%; }
+.topic_cell a { color:#444;}
+.topic_cell a:visited { color:#111; }
 .author_cell { width:200px; }
 .started_time_cell, .author_cell, .reply_cell { font-size: .9em; }
 

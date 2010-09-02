@@ -1,10 +1,25 @@
-<div class="single_post_container">
-    <div class="author_container"><%= @post.author_name %></div>
+<div class="single_post_container <%= class_name %>">
+    <div class="author_container">
+        <%= @post.author_name %>
+        <% if @post.user %>
+            <br/>
+            <span class="post_user_info" >Posts: <%= @post.user.posts.count %><br/>
+                Joined <%= time_ago_in_words(@post.user.created_at) %> ago</span>
+        <% end %>
+    </div>
     <div class="post_container">
-        <div class="post_title"><%= @post.title %></div>
-        <div class="post_body"><%= @post.body %></div>
-        <% if @post.has_permissions?(current_user) %>
-            <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %>
-        <% end  %>
+        <div class="post_title">
+        <%= highlight @post.title, params[:highlight] %>
+
+        </div>
+        <div class="post_body">
+            <%= highlight @post.body, params[:highlight] %>
+            <div class="post_data">
+                Posted <%= time_ago_in_words(@post.created_at) %> ago
+                <% if @post.has_permissions?(current_user) %>
+                    | <%= link_to 'Edit', edit_post_path(@post) %>
+                <% end  %>
+            </div>
+        </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   define_index do
     indexes title
     indexes body
+    indexes user.name, :as => :author
     indexes created_at, :sortable => true
     indexes replies.body, :as => :post_replies_body
     indexes replies.title, :as => :post_replies_title
@@ -25,6 +26,7 @@ class Post < ActiveRecord::Base
   end
   
   def has_permissions?(current_user)
+    return false if !user
     current_user == user
   end
   
@@ -35,6 +37,6 @@ class Post < ActiveRecord::Base
   def request=(request)
     self.user_ip    = request.remote_ip
     self.user_agent = request.env['HTTP_USER_AGENT']
-    self.referrer   = request.env['HTTP_REFERER']
+    self.user_referrer   = request.env['HTTP_REFERER']
   end
 end

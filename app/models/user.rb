@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :search_sets, :class_name => "SearchSet", :foreign_key => "user_id"
+  has_many :posts, :class_name => "Post", :foreign_key => "user_id"
   validates_presence_of :name, :on => :create, :message => "Must have a user name"
   validates_uniqueness_of :name, :on => :create, :message => "There is already a user with this name"
   # Include default devise modules. Others available are:

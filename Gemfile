@@ -42,7 +42,6 @@ group :cucumber do
   gem 'rspec-rails', '>= 2.0.0.beta.10'
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
-  gem 'webrat'
 end  
 
 gem 'factory_girl_rails'
@@ -50,4 +49,4 @@ gem 'faker'
 gem 'pickle'
 gem 'devise'
 
-gem 'thinking-sphinx', '2.0.0.rc1', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', '2.0.0.rc2', :require => 'thinking_sphinx'

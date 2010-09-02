@@ -8,7 +8,13 @@
         </tr>
         <% @posts.each do |post| %>
             <tr>
-                <td class="topic_cell"><%= link_to post.title, post %></td>
+                <td class="topic_cell">
+                    <% if defined? highlight_text %>
+                        <%= link_to post.title, post_url(post, :highlight => highlight_text) %>
+                    <% else %>
+                        <%= link_to post.title, post %>
+                    <% end %>
+                </td>
                 <td class="reply_cell"><%= post.replies.count %></td>
                 <td class="author_cell"><%= post.author_name %></td>
                 <td class="started_time_cell"><%= time_ago_in_words(post.created_at).capitalize %> ago</td>
