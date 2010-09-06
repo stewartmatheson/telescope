@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -47,6 +47,6 @@ end
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'pickle'
-gem 'devise'
+gem 'devise', '>= 1.1.2'
 
 gem 'thinking-sphinx', '2.0.0.rc2', :require => 'thinking_sphinx'
