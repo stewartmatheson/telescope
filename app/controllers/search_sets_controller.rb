@@ -1,11 +1,13 @@
 class SearchSetsController < ApplicationController
+  before_filter :redirect_if_not_logged, :only => [:create, :new, :delete, :edit]
+  
   # GET /search_sets
   # GET /search_sets.xml
   def index
     if user_signed_in?
       @search_sets = SearchSet.where("user_id = ?", current_user.id)
     else
-      @search_sets = SearchSet.where("user_id = NULL")
+      @search_sets = SearchSet.where("user_id IS NULL")
     end
 
     respond_to do |format|

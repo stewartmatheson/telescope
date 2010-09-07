@@ -16,6 +16,9 @@
   <% end %>
   <%= f.label :search_query_string, :Search %>
   <%= f.text_field :search_query_string %>
-  <%= f.submit :value => "Save" %>
-  
+  <% if user_signed_in? %>
+    <%= f.submit :value => "Save" %>
+  <% else %>
+    <span class="red_note">Login to save your search.</span>
+  <% end %>
 <% end %>

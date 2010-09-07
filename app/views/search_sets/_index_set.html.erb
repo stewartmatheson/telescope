@@ -1,10 +1,13 @@
 <div class="saved_search_title" id="search_set_title_<%= search_set.id %>">
     <span class="search_set_title"><strong>Telescope</strong> <%= search_set.search_query_string.capitalize %></span>
-    <div class="delete_button">
-        <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
-            <%= submit_tag "Remove" %>
-        </form>
+    
+    <% if user_signed_in? %>
+        <div class="delete_button">
+            <%= form_tag '/search_sets/' + search_set.id.to_s, :method => :delete, :class => "delete_set" %>
+                <%= submit_tag "Remove" %>
+            </form>
     </div>
+    <% end %>
 </div>
 
 <div class="saved_search_set_posts" id="search_set_body_<%= search_set.id %>">

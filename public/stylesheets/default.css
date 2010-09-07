@@ -7,6 +7,7 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 #title_right a { color:#fff;}
 #main_container { padding:20px; background-color: #fff; color:#000; } 
 #sub_container { padding:20px; }
+.red_note { vertical-align: super; font-size: .4em; color:#FF0000; font-style: italic; }
 
 .post { margin-bottom: 20px; }
 .no_posts { text-align: center; font-size: .8em; margin:20px; color:#333; }
