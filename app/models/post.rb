@@ -39,4 +39,16 @@ class Post < ActiveRecord::Base
     self.user_agent = request.env['HTTP_USER_AGENT']
     self.user_referrer   = request.env['HTTP_REFERER']
   end
+  
+  def title_no_prefix
+    title.gsub(/(\[\w*\])/, "")
+  end
+  
+  def prefixes
+    return_prefixes = Array.new
+    title.scan(/(\[\w*\])/).each do |p|
+      return_prefixes << p.first.gsub(/\[|\]/, "")
+    end
+    return_prefixes
+  end
 end

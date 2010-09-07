@@ -8,4 +8,9 @@ describe Post do
     p1.save
     p.replys.count.should 1
   end
+  
+  it "should return the correct amount of prefixes" do
+    p = Factory.create(:post, :title => "[News] Hello how are you today?")
+    p.prefixes.count.should == 1
+  end
 end

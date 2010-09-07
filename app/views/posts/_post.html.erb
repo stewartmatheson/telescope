@@ -9,8 +9,10 @@
     </div>
     <div class="post_container">
         <div class="post_title">
-        <%= highlight @post.title, params[:highlight] %>
-
+            <% @post.prefixes.each do |prefix| %>
+                <span class="prefix"><%= prefix %></span>
+            <% end %>
+            <%= highlight raw(@post.title_no_prefix), params[:highlight] %>
         </div>
         <div class="post_body">
             <%= highlight @post.body, params[:highlight] %>
