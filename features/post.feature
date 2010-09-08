@@ -59,4 +59,3 @@ Feature: Manage Posts
 		And The post "[news] [help] Hello" should have a prefix count of 2
 		And The post "[news] title" should have a title with out the prefix of "title"
 		And The post "[news] [help] Hello" should have a title with out the prefix of "Hello"
-		

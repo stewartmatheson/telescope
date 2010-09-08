@@ -1,8 +1,9 @@
-<%= render :template => 'posts/_post', :locals => { :@post => @post, :class_name => "light" } %>
+<%= render :template => 'posts/_post', :locals => { :@post => @post.post_topic, :class_name => "light" } %>
+
 <% content_for :sub_container do %>
-    <% @post.replies.each do |reply| %>
+    <% @post.post_topic.replies.each do |reply| %>
         <%= render :template => 'posts/_post', :locals => { :@post => reply, :class_name => "dark" } %>
     <% end %>
     <h3>Reply to this post </h3>
-    <%= render :template => "posts/_form", :locals => { :@post => Post.new(:topic_id => @post.id ) } %>
+    <%= render :template => "posts/_form", :locals => { :@post => Post.new(:topic_id => @post.post_topic.id ) } %>
 <% end %>

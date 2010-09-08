@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :title, :on => :create, :message => "Can't have a post with out a title"
   validates_presence_of :body, :on => :create, :message => "Can't have an empty body"
+  validates_length_of :title_no_prefix, :minimum => 3, :on => :create, :message => "You must have a title with prefixes"
   
   define_index do
     indexes title
@@ -17,7 +18,7 @@ class Post < ActiveRecord::Base
   end
   
   sphinx_scope(:latest_first) do
-    { :order => 'created_at ASC, @relevance DESC' }
+    { :order => 'created_at ASC, @relevance ASC' }
   end
   
   def author_name
@@ -32,6 +33,13 @@ class Post < ActiveRecord::Base
   
   def is_topic?
     !topic
+  end
+  
+  def post_topic
+    if is_topic?
+      return self
+    end
+    topic
   end
   
   def request=(request)

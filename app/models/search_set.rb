@@ -4,7 +4,8 @@ class SearchSet < ActiveRecord::Base
   
   def topics(options = {})
     default_options = { :match_mode => :extended }
-    options.merge default_options
+    options.merge!(default_options)
+    puts options.inspect
     Post.latest_first.search search_query_string, options
   end
   

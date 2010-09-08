@@ -22,9 +22,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     
     #redirect to the post topic
-    if @post.topic
-      @post = @post.topic
-    end
+    #if @post.topic
+    #  @post = @post.topic
+    #end
     
     respond_to do |format|
       format.html # show.html.erb
