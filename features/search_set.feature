@@ -14,7 +14,7 @@ Feature: Manage Searches
       And I fill in "user[password]" with "secret"
       And I fill in "user[password_confirmation]" with "secret"
       And I click button "Sign up"
-   	And I go to the home page
+   	And I go to Stewart's confirmation page
    	And I fill in "search_set[search_query_string]" with "Hello"
    	And I click button "Save"
    	And I go to the home page

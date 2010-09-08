@@ -11,6 +11,9 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
 
+    when /^(.*)'s confirmation page$/i
+      current_user = User.find_by_name($1)
+      "/users/confirmation?confirmation_token=#{current_user.confirmation_token}"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
@@ -20,6 +23,8 @@ module NavigationHelpers
 
     when /path "(.+)"/  
       $1
+      
+
 
     else
       begin

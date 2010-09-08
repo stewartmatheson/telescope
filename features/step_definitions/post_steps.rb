@@ -1,3 +1,5 @@
+
+
 Given /^I have posts titled (.+)$/ do |titles|
   titles.split(', ').each do |title|
     Factory.create(:post, :title => title)
@@ -22,4 +24,14 @@ end
 
 When /^I click button "([^"]*)"$/ do |button_name|
   click_button button_name
+end
+
+Then /^The post "([^"]*)" should have a prefix count of (\d+)$/ do |post_title, prefix_count|
+  current_post = Post.find_by_title(post_title)
+  current_post.prefixes.count.should == prefix_count.to_i
+end
+
+Then /^The post "([^"]*)" should have a title with out the prefix of "([^"]*)"$/ do |post_title, title_with_out_prefix|
+  current_post = Post.find_by_title(post_title)
+  current_post.title_no_prefix.should == title_with_out_prefix
 end

@@ -14,6 +14,6 @@ Feature: Manage Users
       And I fill in "user[password]" with "secret"
       And I fill in "user[password_confirmation]" with "secret"
       And I click button "Sign up"
-      And I go to the home page
+      And I go to Stewart's confirmation page
       Then I should see "Stewart"
       

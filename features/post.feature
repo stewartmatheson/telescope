@@ -48,3 +48,15 @@ Feature: Manage Posts
 	   And I should see "This is the body"
 	   And I should see "Another test post"
 	   And I should see "Another body"
+	   	   
+	Scenario: Posts supports correct prefix count
+	   Given the following posts exist
+			| title                 | body                         | id     | topic_id  | user_agent | 
+			| [news] [help] Hello   | How are you today?           | 1      | null      | cucumber   |
+			| [news] title          | Good thanks what about you?  | 2      | 1         | cucumber   |  
+			| Great                 | I am great today             | 3      | 1         | cucumber   |
+		Then The post "[news] title" should have a prefix count of 1
+		And The post "[news] [help] Hello" should have a prefix count of 2
+		And The post "[news] title" should have a title with out the prefix of "title"
+		And The post "[news] [help] Hello" should have a title with out the prefix of "Hello"
+		

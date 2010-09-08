@@ -41,7 +41,7 @@ class Post < ActiveRecord::Base
   end
   
   def title_no_prefix
-    title.gsub(/(\[\w*\])/, "")
+    title.gsub(/(\[\w*\])/, "").strip
   end
   
   def prefixes
