@@ -48,3 +48,6 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 
 .post_field { margin-left: 100px; margin-bottom:20px; }
 .field_label { float:left; padding-top:10px; }
+
+#footer { padding:20px; font-size:.7em; color:#888; line-height:1.5em; border-top: 1px solid #888; }
+#footer a { color:#aaa; }

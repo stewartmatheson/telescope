@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   end
   
   sphinx_scope(:latest_first) do
-    { :order => 'created_at ASC, @relevance ASC' }
+    { :order => 'created_at DESC, @relevance ASC' }
   end
   
   def author_name

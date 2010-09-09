@@ -10,4 +10,15 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  after_create :create_default_telescopes
+  
+  private 
+  
+  def create_default_telescopes
+    SearchSet.default_sets.each do |s|
+      t = s.clone
+      t.user = self
+      t.save
+    end
+  end
 end

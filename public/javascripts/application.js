@@ -19,6 +19,7 @@ $(document).ready(function(){
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,forecolor",
 		theme_advanced_buttons2 : "",
-		theme_advanced_buttons3 : ""
+		theme_advanced_buttons3 : "",
+		height : "250"
 	});
 });

@@ -7,7 +7,7 @@ class SearchSetsController < ApplicationController
     if user_signed_in?
       @search_sets = SearchSet.where("user_id = ?", current_user.id)
     else
-      @search_sets = SearchSet.where("user_id IS NULL")
+      @search_sets = SearchSet.default_sets
     end
 
     respond_to do |format|

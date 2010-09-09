@@ -1,4 +1,9 @@
-<h3><%= @search_set.search_query_string %></h3>
+<h3>
+    <% @search_set.prefixes.each do |prefix| %>
+        <span class="prefix"><%= prefix %></span>
+    <% end %>
+    <%= @search_set.query_string_no_prefix %>
+</h3>
 <%= render :template => 'posts/index', :locals => { :@posts => @topics } %>
 
 <div id="page_links">

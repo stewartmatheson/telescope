@@ -42,5 +42,10 @@
     <%= yield :sub_container %>
 </div>
 
+<div id="footer">
+	This forum has a total of <%= Post.find(:all).count %> posts. <br />
+	Powered By <a href="http://telescopeapp.net">Telescope</a> &copy; <%= Time.now.year %>
+</div>
+
 </body>
 </html>

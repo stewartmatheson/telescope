@@ -7,23 +7,25 @@
             <th>Created</th>
         </tr>
         <% @posts.each do |post| %>
-            <tr>
-                <td class="topic_cell">
+            <% if post %>
+                <tr>
+                    <td class="topic_cell">
                     
-                    <% post.prefixes.each do |prefix| %>
-                       <span class="prefix"><%= prefix %></span> 
-                    <% end %>
+                        <% post.prefixes.each do |prefix| %>
+                           <span class="prefix"><%= prefix %></span> 
+                        <% end %>
                     
-                    <% if defined? highlight_text %>
-                        <%= link_to post.title_no_prefix, post_url(post, :highlight => highlight_text) %>
-                    <% else %>
-                        <%= link_to post.title_no_prefix, post %>
-                    <% end %>
-                </td>
-                <td class="reply_cell"><%= post.replies.count %></td>
-                <td class="author_cell"><%= post.author_name %></td>
-                <td class="started_time_cell"><%= time_ago_in_words(post.created_at).capitalize %> ago</td>
-            </tr>
+                        <% if defined? highlight_text %>
+                            <%= link_to post.title_no_prefix, post_url(post, :highlight => highlight_text) %>
+                        <% else %>
+                            <%= link_to post.title_no_prefix, post %>
+                        <% end %>
+                    </td>
+                    <td class="reply_cell"><%= post.replies.count %></td>
+                    <td class="author_cell"><%= post.author_name %></td>
+                    <td class="started_time_cell"><%= time_ago_in_words(post.created_at).capitalize %> ago</td>
+                </tr>
+            <% end %>
         <% end %>
     </table>
 <% else %>

@@ -22,3 +22,18 @@ Feature: Manage Searches
    	And I go to the home page
    	Then I should see "Stewart"
    	And I should see "Hello"
+   	
+   Scenario: Default search sets get copied for a new user
+      Given the following search_sets exist
+         | search_query_string   |
+         | Hello                 |
+         | Test                  |
+   	And I go to path "/users/sign_up"
+      And I fill in "user[name]" with "Stewart"
+      And I fill in "user[email]" with "stewart@somewhere.com"
+      And I fill in "user[password]" with "secret"
+      And I fill in "user[password_confirmation]" with "secret"
+      And I click button "Sign up"
+   	And I go to Stewart's confirmation page
+   	Then I should see "Test"
+   	And I should see "Hello"
