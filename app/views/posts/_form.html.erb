@@ -10,23 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-
+  
   <%= f.hidden_field :topic_id %>
 
   <% if user_signed_in? %>  
       <%= f.hidden_field :user_id, :value => current_user.id %>
   <% end %>
+  
+  <div class="field_label">
+    <%= f.label :title %>    
+  </div>
 
   <div class="post_field">
-    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="post_field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+  
+  <div class="field_label">
+    <%= f.label :body %>    
   </div>
-  <div class="actions">
+  
+  <div class="post_field">
+    <%= f.text_area :body, :class => "tinymce" %>
+  </div>
+  
+  
+  <div class="actions post_field">
     <%= f.submit %>
   </div>
 <% end %>

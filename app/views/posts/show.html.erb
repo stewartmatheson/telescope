@@ -1,5 +1,14 @@
-<%= render :template => 'posts/_post', :locals => { :@post => @post.post_topic, :class_name => "light" } %>
+<% if params[:highlight] %>
+    <% content_for :head do %>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $('.post_container').highlight('<%= params[:highlight] %>');    
+            });
+        </script>
+    <% end %>
+<% end %>
 
+<%= render :template => 'posts/_post', :locals => { :@post => @post.post_topic, :class_name => "light" } %>
 <% content_for :sub_container do %>
     <% @post.post_topic.replies.each do |reply| %>
         <%= render :template => 'posts/_post', :locals => { :@post => reply, :class_name => "dark" } %>

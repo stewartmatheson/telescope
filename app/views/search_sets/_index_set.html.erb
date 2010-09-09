@@ -1,5 +1,10 @@
 <div class="saved_search_title" id="search_set_title_<%= search_set.id %>">
-    <span class="search_set_title"><strong>Telescope</strong> <%= search_set.search_query_string.capitalize %></span>
+    <span class="search_set_title">
+        <% search_set.prefixes.each do |prefix| %>
+            <span class="prefix"><%= prefix %></span>
+        <% end %>
+        <%= search_set.query_string_no_prefix %>
+    </span>
     
     <% if user_signed_in? %>
         <div class="delete_button">
@@ -12,7 +17,7 @@
 
 <div class="saved_search_set_posts" id="search_set_body_<%= search_set.id %>">
     <% if search_set.topics.total_entries > 0 %>
-        <%= render :template => 'posts/index', :locals => { :@posts => search_set.topics, :highlight_text => search_set.search_query_string } %>
+        <%= render :template => 'posts/index', :locals => { :@posts => search_set.topics, :highlight_text => search_set.query_string_no_prefix } %>
         <div class="search_set_summary">This telescope consists of <%= pluralize(search_set.topics.total_entries, "Post") %>. <%= link_to 'Older Posts', search_set %></div>
     <% else %>
         <div class="no_posts">This telescope did not return any posts.</div>

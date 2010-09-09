@@ -12,10 +12,10 @@
             <% @post.prefixes.each do |prefix| %>
                 <span class="prefix"><%= prefix %></span>
             <% end %>
-            <%= highlight raw(@post.title_no_prefix), params[:highlight] %>
+            <%= @post.title_no_prefix %>
         </div>
         <div class="post_body">
-            <%= highlight @post.body, params[:highlight] %>
+            <%= raw @post.body %>
             <div class="post_data">
                 Posted <%= time_ago_in_words(@post.created_at) %> ago
                 <% if @post.has_permissions?(current_user) %>
