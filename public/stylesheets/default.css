@@ -12,15 +12,15 @@ body { margin:0px; padding:0px; background-color: #333; color:#fff; font-family:
 .post { margin-bottom: 20px; }
 .no_posts { text-align: center; font-size: .8em; margin:20px; color:#333; }
 #post_body, #post_title { width:550px; font-size: 1.3em; padding:5px; }
-.author_container { float:left; width:150px; background-image: url('/images/left_arrow.png'); background-repeat: no-repeat; background-position: top right; font-size: .9em; margin-top:10px;  }
+.author_container { float:left; width:150px; background-image: url('/images/left_arrow.png'); background-repeat: no-repeat; background-position: top right; font-size: .9em; margin-top:20px;  }
 .post_container { margin-left:150px; padding:20px; }
 .single_post_container { margin-bottom:50px; }
 .post_edit_links { font-size: .7em; }
 .post_edit_links a { color:#aaa; }
 .highlight { background-color: #FFFF00; }
 
-.post_title { margin-bottom:15px; font-size:1.0em; font-weight: bold; }
-.post_body { font-size: .8em; }
+.post_title { margin-bottom:5px; font-size:1.0em; font-weight: bold; }
+.post_body { font-size: .8em; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding-bottom:10px; }
 .post_data { margin-top:20px; font-size: 0.8em; }
 .post_user_info { font-size: .8em;}
 
